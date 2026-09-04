@@ -343,6 +343,7 @@ Why?
 It can create ambiguity when both parent classes contain methods with the same name.
 
 Java solves this problem using interfaces.
+
 ---
 
 ## 10.Polymorphism
@@ -463,6 +464,7 @@ Output
 Dog barks
 ```
 Here the method that executes is decided at runtime.
+
 ---
 
 ## 13. Method Overloading vs Method Overriding
@@ -545,6 +547,7 @@ abstract class Animal {
 }
 ```
 The child class must implement the abstract method unless the child class is also abstract.
+
 ---
 ## 17. Interface
 
@@ -612,6 +615,7 @@ class C implements A, B {
 }
 ```
 Here class C implements both interfaces.
+
 ---
 
 ## 19. Encapsulation vs Abstraction
@@ -622,6 +626,7 @@ Here class C implements both interfaces.
 | Focuses on data security                             | Focuses on essential functionality             |
 | Answers "How to protect data?"                       | Answers "What should be exposed?"              |
 ---
+
 ## 20. Constructor
 
 A constructor is a special member of a class used to initialize objects.
@@ -779,4 +784,99 @@ Output:
 10
 
 ---
-## 27.
+## 27. Access Modifiers
+
+Java provides four access levels:
+
+1. private
+2. default
+3. protected
+4. public
+
+| Modifier  | Same Class | Same Package | Subclass Other Package | Other Package |
+| --------- | ---------- | ------------ | ---------------------- | ------------- |
+| private   | Yes        | No           | No                     | No            |
+| default   | Yes        | Yes          | No                     | No            |
+| protected | Yes        | Yes          | Yes                    | No            |
+| public    | Yes        | Yes          | Yes                    | Yes           |
+---
+
+## 28. static Keyword
+
+The static keyword belongs to the class rather than to an individual object.
+
+It can be used with:
+
+* Variables
+* Methods
+* Blocks
+* Nested classes
+
+Static Variable
+```java
+class Student {
+
+    int id;
+    static String college = "ABC College";
+}
+```
+The static variable is shared by all objects.
+
+---
+
+## 29. Static Method
+
+A static method belongs to the class.
+```java
+class Test {
+
+    static void display() {
+
+        System.out.println("Hello");
+    }
+}
+```
+It can be called using the class name.
+```java
+Test.display();
+```
+
+## 30.Static vs Non-Static
+| Static                             | Non-Static                             |
+| ---------------------------------- | -------------------------------------- |
+| Belongs to class                   | Belongs to object                      |
+| Can be accessed using class name   | Usually accessed using object          |
+| One shared copy                    | Separate copy for each object          |
+| Can directly access static members | Can access static and instance members |
+---
+
+## 31. Association
+
+Association represents a relationship between two independent objects.
+
+Example:
+Teacher ---- Student
+```
+A teacher and student can exist independently.
+```
+
+## 32. Aggregation
+
+Aggregation is a weak HAS-A relationship.
+
+The child object can exist independently of the parent.
+
+Example:
+```java
+class Department {
+}
+
+class University {
+
+    Department department;
+}
+```
+A department can exist independently of a university.
+---
+
+## 33. 
