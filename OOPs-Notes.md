@@ -1288,6 +1288,7 @@ Java provides interfaces as a solution for multiple inheritance of type.
 ---
 
 51. OOPs Quick Revision
+```text
 OOPs
  |
  +-- Class
@@ -1317,7 +1318,7 @@ OOPs
        +-- Abstract Class
        +-- Interface
 ---
-
+```
 52. Important Keywords Related to OOPs
 | Keyword      | Purpose                                      |
 | ------------ | -------------------------------------------- |
@@ -1334,7 +1335,7 @@ OOPs
 ---
 
 53. Real-World Example of OOPs
-
+```text
 Consider a banking application.
 BankAccount
     |
@@ -1346,7 +1347,7 @@ BankAccount
     +-- withdraw()
     +-- checkBalance()
 ---
-
+```
 Encapsulation
 
 Keep account data private.
@@ -1364,13 +1365,13 @@ withdraw();
 Inheritance
 
 Different account types can inherit from a common account class.
-
+```text
 BankAccount
    |
    +-- SavingsAccount
    |
    +-- CurrentAccount
-
+```
 
 Polymorphism
 
