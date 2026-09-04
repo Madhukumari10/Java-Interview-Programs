@@ -1172,10 +1172,12 @@ Dog bark
 | A class can extend only one class      | A class can implement multiple interfaces     |
 ---
 
-## 50. Important OOPs Interview Questions
+50. Important OOPs Interview Questions
+
 Q1. What is OOPs?
 
 OOPs is a programming approach based on objects and classes. Its four major principles are Encapsulation, Inheritance, Polymorphism and Abstraction.
+
 ---
 
 Q2. What are the four pillars of OOPs?
@@ -1186,16 +1188,19 @@ The four pillars are:
 2. Inheritance
 3. Polymorphism
 4. Abstraction
+
 ---
 
 Q3. What is encapsulation?
 
 Encapsulation means wrapping data and methods together and restricting direct access to data using access modifiers.
+
 ---
 
 Q4. What is inheritance?
 
 Inheritance allows a child class to acquire properties and behaviors of a parent class.
+
 ---
 
 Q5. What is polymorphism?
@@ -1206,6 +1211,7 @@ It is mainly achieved through:
 
 Method overloading
 Method overriding
+
 ---
 
 Q6. What is abstraction?
@@ -1213,6 +1219,7 @@ Q6. What is abstraction?
 Abstraction means hiding implementation details and exposing only essential functionality.
 
 It is achieved using abstract classes and interfaces.
+
 ---
 
 Q7. Difference between overloading and overriding?
@@ -1220,6 +1227,7 @@ Q7. Difference between overloading and overriding?
 Overloading occurs at compile time and uses different parameter lists.
 
 Overriding occurs at runtime and requires a parent-child relationship with the same method signature.
+
 ---
 
 Q8. Can we overload a method by changing only the return type?
@@ -1227,6 +1235,7 @@ Q8. Can we overload a method by changing only the return type?
 No.
 
 Return type alone cannot differentiate overloaded methods.
+
 ---
 
 Q9. Can we override a static method?
@@ -1234,6 +1243,7 @@ Q9. Can we override a static method?
 No.
 
 Static methods are hidden, not overridden.
+
 ---
 
 Q10. Can we override a final method?
@@ -1241,6 +1251,7 @@ Q10. Can we override a final method?
 No.
 
 A final method cannot be overridden.
+
 ---
 
 Q11. Can we create an object of an abstract class?
@@ -1263,6 +1274,7 @@ Animal a = new Animal();
 Yes.
 
 An abstract class can have constructors.
+
 ---
 
 Q13. Can an interface have a constructor?
@@ -1270,6 +1282,7 @@ Q13. Can an interface have a constructor?
 No.
 
 Interfaces cannot have constructors.
+
 ---
 
 Q14. Can we create a reference of an abstract class?
@@ -1285,6 +1298,7 @@ Q15. Why is multiple inheritance not supported through classes?
 Because it can create ambiguity, commonly known as the diamond problem.
 
 Java provides interfaces as a solution for multiple inheritance of type.
+
 ---
 
 51. OOPs Quick Revision
@@ -1320,6 +1334,7 @@ OOPs
 ---
 ```
 52. Important Keywords Related to OOPs
+```text
 | Keyword      | Purpose                                      |
 | ------------ | -------------------------------------------- |
 | `class`      | Defines a class                              |
@@ -1333,7 +1348,7 @@ OOPs
 | `abstract`   | Defines abstract class or method             |
 | `instanceof` | Checks object type                           |
 ---
-
+```
 53. Real-World Example of OOPs
 ```text
 Consider a banking application.
