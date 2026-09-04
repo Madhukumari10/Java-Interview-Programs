@@ -1,4 +1,7 @@
+````markdown
 # Core Java Notes
+
+---
 
 ## 1. What is Java?
 
@@ -17,230 +20,325 @@ Java is widely used for building desktop applications, web applications, backend
 - Multithreaded
 - Distributed
 - High Performance
-- Automatic Garbage Collection
+- Architecture Neutral
 
 ---
 
 ## 2. How Java Works
 
-Java follows the concept:
+Java follows the principle:
 
-Source Code → Compiler → Bytecode → JVM → Machine Code
+**Write Once, Run Anywhere (WORA)**
 
-Example:
+Java source code is written in a `.java` file.
+
+The Java compiler converts the source code into **bytecode**.
+
+The bytecode is stored in a `.class` file.
+
+The JVM executes this bytecode.
+
+### Flow
+
+```text
+Java Source Code
+       ↓
+    Compiler
+       ↓
+   Bytecode
+       ↓
+      JVM
+       ↓
+Operating System
+````
+
+### Example
 
 ```java
 public class HelloWorld {
 
     public static void main(String[] args) {
-        System.out.println("Hello, Java!");
+        System.out.println("Hello World");
     }
 }
+```
 
-```markdown
+---
+
 ## 3. JDK, JRE and JVM
-JVM - Java Virtual Machine
 
-JVM is responsible for executing Java bytecode.
+### JVM
 
-It makes Java platform independent because the same bytecode can run on different operating systems using their respective JVM implementations.
+JVM stands for **Java Virtual Machine**.
 
-JRE - Java Runtime Environment
+It is responsible for executing Java bytecode.
 
-JRE provides the environment required to run Java applications.
+### JRE
 
-JRE = JVM + Java Libraries
-JDK - Java Development Kit
+JRE stands for **Java Runtime Environment**.
 
-JDK provides everything required to develop and run Java applications.
+Conceptually, it provides the JVM and libraries required to run Java applications.
 
-JDK = JRE + Development Tools
-Simple Difference
-JDK	JRE	JVM
-Used to develop and run Java applications	Used to run Java applications	Executes bytecode
-Contains JRE	Contains JVM	Part of JRE
-Contains development tools	Contains libraries	Platform dependent implementation
+### JDK
 
-```markdown
+JDK stands for **Java Development Kit**.
+
+It contains tools required to develop and run Java applications, including the compiler.
+
+### Difference
+
+| Component | Purpose                                         |
+| --------- | ----------------------------------------------- |
+| JVM       | Executes bytecode                               |
+| JRE       | Provides environment to run Java programs       |
+| JDK       | Provides tools to develop and run Java programs |
+
+### Simple Relationship
+
+```text
+JDK
+ └── JRE
+      └── JVM
+```
+
+---
+
 ## 4. Variables
 
 A variable is a named memory location used to store data.
 
-Example:
+### Syntax
 
-int age = 28;
+```java
+dataType variableName = value;
+```
+
+### Example
+
+```java
+int age = 25;
 String name = "Madhu";
-
-Here:
-
-• int is the data type.
-• age is the variable.
-• 28 is the value.
-
-
-5. Data Types
-
-Java data types are divided into two categories:
-
-Primitive Data Types
-
-Java has 8 primitive data types:
-
-1. byte
-2. short
-3. int
-4. long
-5. float
-6. double
-7. char
-8. boolean
-
-Example:
-
-int age = 28;
 double salary = 45000.50;
-char grade = 'A';
-boolean active = true;
-Non-Primitive Data Types
+```
+
+### Types of Variables
+
+* Local Variable
+* Instance Variable
+* Static Variable
+
+### Local Variable
+
+Declared inside a method, constructor or block.
+
+```java
+public void show() {
+    int age = 25;
+    System.out.println(age);
+}
+```
+
+### Instance Variable
+
+Declared inside a class but outside methods.
+
+```java
+class Student {
+
+    int age;
+    String name;
+}
+```
+
+### Static Variable
+
+Declared using the `static` keyword.
+
+```java
+class Student {
+
+    static String college = "ABC College";
+}
+```
+
+---
+
+## 5. Data Types
+
+Java has two main categories of data types:
+
+* Primitive Data Types
+* Non-Primitive Data Types
+
+### Primitive Data Types
+
+| Data Type |          Size | Example                |
+| --------- | ------------: | ---------------------- |
+| byte      |        1 byte | `byte a = 10;`         |
+| short     |       2 bytes | `short a = 100;`       |
+| int       |       4 bytes | `int a = 1000;`        |
+| long      |       8 bytes | `long a = 10000L;`     |
+| float     |       4 bytes | `float a = 10.5f;`     |
+| double    |       8 bytes | `double a = 10.5;`     |
+| char      |       2 bytes | `char a = 'A';`        |
+| boolean   | JVM-dependent | `boolean flag = true;` |
+
+### Non-Primitive Data Types
 
 Examples:
 
-• String
-• Array
-• Class
-• Interface
-• Object
+* String
+* Arrays
+* Classes
+* Objects
+* Interfaces
 
+---
 
-6. Type Casting
+## 6. Type Casting
 
 Type casting means converting one data type into another.
 
-Widening Casting
+### Widening Casting
 
-Smaller data type → Larger data type
+Smaller type → Larger type.
 
-int number = 10;
+It is performed automatically.
+
+```java
+int number = 100;
 double value = number;
 
-This happens automatically.
+System.out.println(value);
+```
 
-Narrowing Casting
+### Narrowing Casting
 
-Larger data type → Smaller data type
+Larger type → Smaller type.
 
-double value = 10.5;
+It requires explicit casting.
+
+```java
+double value = 100.50;
 int number = (int) value;
 
-This requires explicit casting.
+System.out.println(number);
+```
 
+---
 
-7. Operators
+## 7. Operators
 
-Operators are symbols used to perform operations on variables and values.
+Operators are symbols used to perform operations.
 
-Arithmetic Operators
-+   Addition
--   Subtraction
-*   Multiplication
-/   Division
-%   Modulus
+### Arithmetic Operators
+
+```text
++  -  *  /  %
+```
 
 Example:
 
+```java
 int a = 10;
-int b = 3;
+int b = 5;
 
 System.out.println(a + b);
 System.out.println(a - b);
 System.out.println(a * b);
 System.out.println(a / b);
 System.out.println(a % b);
+```
 
+### Relational Operators
 
-Relational Operators
-==   Equal to
-!=   Not equal to
->    Greater than
-<    Less than
->=   Greater than or equal to
-<=   Less than or equal to
+```text
+==  !=  >  <  >=  <=
+```
 
-These operators return true or false.
+### Logical Operators
 
-
-Logical Operators
-&&   Logical AND
-||   Logical OR
-!    Logical NOT
+```text
+&&  ||  !
+```
 
 Example:
 
+```java
 int age = 25;
 
-if (age >= 18 && age <= 60) {
-    System.out.println("Eligible");
-}
-Assignment Operators
-= 
-+=
--=
-*=
-/=
-%=
+System.out.println(age > 18 && age < 60);
+```
 
-Example:
+### Assignment Operators
 
-int number = 10;
-number += 5;
-Increment and Decrement
-++   Increment
---   Decrement
+```text
+=  +=  -=  *=  /=  %=
+```
 
-Example:
+### Unary Operators
 
-int number = 10;
+```text
+++  --
+```
 
-number++;
-number--;
-Ternary Operator
+### Ternary Operator
 
-The ternary operator is a short form of if-else.
-
+```java
 int age = 20;
 
-String result = (age >= 18) ? "Adult" : "Minor";
+String result = age >= 18 ? "Adult" : "Minor";
 
+System.out.println(result);
+```
 
-8. Conditional Statements
+---
 
-Conditional statements are used to execute code based on conditions.
+## 8. Conditional Statements
 
-if Statement
+Conditional statements are used to make decisions.
+
+### if Statement
+
+```java
+int age = 20;
+
 if (age >= 18) {
-    System.out.println("Adult");
+    System.out.println("Eligible");
 }
-if-else Statement
-if (age >= 18) {
-    System.out.println("Adult");
+```
+
+### if-else
+
+```java
+int number = 10;
+
+if (number % 2 == 0) {
+    System.out.println("Even");
 } else {
-    System.out.println("Minor");
+    System.out.println("Odd");
 }
-else-if Statement
+```
 
-Used when multiple conditions need to be checked.
+### else-if
+
+```java
+int marks = 75;
 
 if (marks >= 90) {
     System.out.println("A");
 } else if (marks >= 75) {
     System.out.println("B");
-} else {
+} else if (marks >= 60) {
     System.out.println("C");
+} else {
+    System.out.println("Fail");
 }
-switch Statement
+```
 
-Used when one value needs to be compared with multiple cases.
+### switch
 
+```java
 int day = 2;
 
 switch (day) {
@@ -255,49 +353,59 @@ switch (day) {
     default:
         System.out.println("Invalid day");
 }
+```
 
+---
 
-9. Loops
+## 9. Loops
 
 Loops are used to execute a block of code repeatedly.
 
-for Loop
+### for Loop
+
+```java
 for (int i = 1; i <= 5; i++) {
     System.out.println(i);
 }
-while Loop
+```
+
+### while Loop
+
+```java
 int i = 1;
 
 while (i <= 5) {
     System.out.println(i);
     i++;
 }
-do-while Loop
+```
 
-The do-while loop executes at least once.
+### do-while Loop
 
+```java
 int i = 1;
 
 do {
     System.out.println(i);
     i++;
 } while (i <= 5);
-Enhanced for Loop
+```
 
-Commonly used for arrays and collections.
+### Enhanced for Loop
 
-int[] numbers = {10, 20, 30};
+```java
+int[] numbers = {10, 20, 30, 40};
 
 for (int number : numbers) {
     System.out.println(number);
 }
+```
 
+### break
 
-10. break and continue
-break
+Used to terminate a loop.
 
-break terminates the loop.
-
+```java
 for (int i = 1; i <= 10; i++) {
 
     if (i == 5) {
@@ -306,10 +414,13 @@ for (int i = 1; i <= 10; i++) {
 
     System.out.println(i);
 }
-continue
+```
 
-continue skips the current iteration.
+### continue
 
+Used to skip the current iteration.
+
+```java
 for (int i = 1; i <= 5; i++) {
 
     if (i == 3) {
@@ -318,250 +429,353 @@ for (int i = 1; i <= 5; i++) {
 
     System.out.println(i);
 }
+```
 
+---
 
-11. Methods
+## 10. Arrays
 
-A method is a block of code designed to perform a specific task.
+An array stores multiple values of the same data type.
 
-Example:
+### Declaration
 
-public static int add(int a, int b) {
-    return a + b;
+```java
+int[] numbers = new int[5];
+```
+
+### Initialization
+
+```java
+int[] numbers = {10, 20, 30, 40, 50};
+```
+
+### Accessing Elements
+
+```java
+System.out.println(numbers[0]);
+```
+
+Array indexing starts from `0`.
+
+### Traversing Array
+
+```java
+int[] numbers = {10, 20, 30, 40};
+
+for (int number : numbers) {
+    System.out.println(number);
+}
+```
+
+### Important Points
+
+* Array size is fixed.
+* Index starts from 0.
+* Arrays store elements of the same type.
+* Arrays are objects in Java.
+* Array length is accessed using `length`.
+
+---
+
+## 11. String
+
+String is a sequence of characters.
+
+```java
+String name = "Madhu";
+```
+
+### String is Immutable
+
+Once a String object is created, its content cannot be changed.
+
+```java
+String name = "Java";
+
+name.concat(" Programming");
+
+System.out.println(name);
+```
+
+Output:
+
+```text
+Java
+```
+
+### Common String Methods
+
+```java
+String text = "Java Programming";
+
+System.out.println(text.length());
+System.out.println(text.toUpperCase());
+System.out.println(text.toLowerCase());
+System.out.println(text.charAt(0));
+System.out.println(text.substring(0, 4));
+System.out.println(text.contains("Java"));
+```
+
+### String Comparison
+
+Use `equals()` to compare String contents.
+
+```java
+String a = "Java";
+String b = "Java";
+
+System.out.println(a.equals(b));
+```
+
+`==` compares references for objects, while `equals()` generally compares logical content when the class overrides it.
+
+---
+
+## 12. StringBuilder and StringBuffer
+
+### StringBuilder
+
+StringBuilder is mutable and is generally preferred when thread synchronization is not required.
+
+```java
+StringBuilder sb = new StringBuilder("Java");
+
+sb.append(" Programming");
+
+System.out.println(sb);
+```
+
+### StringBuffer
+
+StringBuffer is mutable and synchronized.
+
+```java
+StringBuffer sb = new StringBuffer("Java");
+
+sb.append(" Programming");
+
+System.out.println(sb);
+```
+
+### Difference
+
+| String                           | StringBuilder          | StringBuffer                          |
+| -------------------------------- | ---------------------- | ------------------------------------- |
+| Immutable                        | Mutable                | Mutable                               |
+| Thread-safe through immutability | Not synchronized       | Synchronized                          |
+| Good for fixed text              | Fast for modifications | Useful when synchronization is needed |
+
+---
+
+## 13. Class and Object
+
+### Class
+
+A class is a blueprint or template for creating objects.
+
+```java
+class Student {
+
+    String name;
+    int age;
+}
+```
+
+### Object
+
+An object is an instance of a class.
+
+```java
+Student student = new Student();
+```
+
+### Example
+
+```java
+class Student {
+
+    String name;
+    int age;
+
+    void display() {
+        System.out.println(name);
+        System.out.println(age);
+    }
 }
 
-Calling the method:
+public class ClassAndObject {
 
-int result = add(10, 20);
-System.out.println(result);
+    public static void main(String[] args) {
 
-Types of Methods
-• Method with return value
-• Method without return value
-• Method with parameters
-• Method without parameters
+        Student student = new Student();
 
-12. Method Overloading
+        student.name = "Madhu";
+        student.age = 25;
 
-Method overloading means having multiple methods with the same name but different parameters.
-
-Example:
-
-class Calculator {
-
-    int add(int a, int b) {
-        return a + b;
-    }
-
-    int add(int a, int b, int c) {
-        return a + b + c;
+        student.display();
     }
 }
+```
 
-Method overloading is an example of compile-time polymorphism.
+---
 
-13. Constructor
+## 14. Constructor
 
 A constructor is used to initialize an object.
 
-Example:
+### Important Points
 
+* Constructor name must be same as class name.
+* Constructor does not have a return type.
+* It is called automatically when an object is created.
+* Constructors can be overloaded.
+
+### Example
+
+```java
 class Student {
 
     String name;
+    int age;
 
     Student() {
-        name = "Madhu";
+        System.out.println("Constructor called");
     }
 }
-Important Points
-• Constructor name must be the same as the class name.
-• Constructor does not have a return type.
-• Constructor is called automatically when an object is created.
-• Constructors can be overloaded.
+```
 
-14. this Keyword
+### Parameterized Constructor
 
-this refers to the current object.
-
-Example:
-
+```java
 class Student {
 
     String name;
+    int age;
 
-    Student(String name) {
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+---
+
+## 15. this Keyword
+
+`this` refers to the current object.
+
+### Example
+
+```java
+class Student {
+
+    String name;
+    int age;
+
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+Here:
+
+```text
+this.name
+```
+
+refers to the instance variable.
+
+---
+
+## 16. static Keyword
+
+The `static` keyword belongs to the class rather than individual objects.
+
+### Static Variable
+
+```java
+class Student {
+
+    static String college = "ABC College";
+}
+```
+
+### Static Method
+
+```java
+class Test {
+
+    static void display() {
+        System.out.println("Hello");
+    }
+
+    public static void main(String[] args) {
+        Test.display();
+    }
+}
+```
+
+### Important Points
+
+* Static members belong to the class.
+* Static methods can be called using the class name.
+* A static method cannot directly access non-static instance members.
+
+---
+
+## 17. Encapsulation
+
+Encapsulation means wrapping data and methods together and controlling access to the data.
+
+Usually, fields are made `private` and accessed using getters and setters.
+
+### Example
+
+```java
+class Student {
+
+    private String name;
+    private int age;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
-}
 
-Here, this.name refers to the instance variable.
-
-15. static Keyword
-
-The static keyword is used for members that belong to the class rather than individual objects.
-
-Example:
-
-class Employee {
-
-    static String company = "ABC";
-}
-
-A static variable is shared among all objects of the class.
-
-Static Method
-static void display() {
-    System.out.println("Hello");
-}
-
-Static methods can be called using the class name.
-
-Employee.display();
-
-
-16. final Keyword
-
-The final keyword can be used with variables, methods and classes.
-
-final Variable
-
-Its value cannot be changed.
-
-final int MAX_VALUE = 100;
-final Method
-
-A final method cannot be overridden.
-
-final Class
-
-A final class cannot be inherited.
-
-Example:
-
-final class A {
-}
-
-
-17. Arrays
-
-An array is used to store multiple values of the same data type.
-
-Example:
-
-int[] numbers = {10, 20, 30, 40, 50};
-
-Accessing an element:
-
-System.out.println(numbers[0]);
-
-Array indexing starts from 0.
-
-Finding array length:
-
-System.out.println(numbers.length);
-
-
-18. String
-
-String is used to store a sequence of characters.
-
-Example:
-
-String name = "Madhu";
-
-Strings are objects in Java.
-
-Example:
-
-String firstName = "Madhu";
-String lastName = "Kumari";
-
-Common String methods:
-
-length()
-charAt()
-equals()
-equalsIgnoreCase()
-toUpperCase()
-toLowerCase()
-substring()
-contains()
-replace()
-trim()
-
-
-19. String vs StringBuilder vs StringBuffer
-String
-
-String is immutable.
-
-String name = "Java";
-name = name + " Programming";
-
-A new String object may be created when the value changes.
-
-StringBuilder
-
-StringBuilder is mutable and generally preferred when frequent string modifications are needed in a single-threaded context.
-
-StringBuilder builder = new StringBuilder("Java");
-builder.append(" Programming");
-StringBuffer
-
-StringBuffer is mutable and synchronized, making it thread-safe but generally slower than StringBuilder.
-
-20. Object-Oriented Programming
-
-Java is primarily an object-oriented programming language.
-
-The four major OOP concepts are:
-
-1. Encapsulation
-2. Inheritance
-3. Polymorphism
-4. Abstraction
-
-Other important concepts include:
-
-• Class
-• Object
-• Interface
-• Constructor
-
-
-21. Encapsulation
-
-Encapsulation means wrapping data and methods together and restricting direct access to data.
-
-Usually achieved using:
-
-• private variables
-• public getters
-• public setters
-
-Example:
-
-class Employee {
-
-    private int salary;
-
-    public int getSalary() {
-        return salary;
+    public int getAge() {
+        return age;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
+    public void setAge(int age) {
+        this.age = age;
     }
 }
+```
 
+### Benefits
 
-22. Inheritance
+* Data hiding
+* Security
+* Controlled access
+* Better maintainability
+
+---
+
+## 18. Inheritance
 
 Inheritance allows one class to acquire properties and behavior of another class.
 
-Example:
+It is achieved using the `extends` keyword for classes.
 
+### Example
+
+```java
 class Animal {
 
     void eat() {
@@ -575,26 +789,64 @@ class Dog extends Animal {
         System.out.println("Barking");
     }
 }
+```
 
-Here, Dog inherits from Animal.
+```java
+public class Test {
 
+    public static void main(String[] args) {
 
-23. Polymorphism
+        Dog dog = new Dog();
 
-Polymorphism means one name having multiple forms.
+        dog.eat();
+        dog.bark();
+    }
+}
+```
 
-Two common types:
+### Types of Inheritance in Java
 
-Compile-Time Polymorphism
+* Single Inheritance
+* Multilevel Inheritance
+* Hierarchical Inheritance
 
-Achieved using method overloading.
+Java does not support multiple inheritance through classes.
 
-Runtime Polymorphism
+Multiple inheritance of type can be achieved through interfaces.
 
-Achieved using method overriding.
+---
 
-Example:
+## 19. Polymorphism
 
+Polymorphism means **many forms**.
+
+There are two main types:
+
+* Compile-time Polymorphism
+* Runtime Polymorphism
+
+### Method Overloading
+
+Same method name with different parameters.
+
+```java
+class Calculator {
+
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+```
+
+### Method Overriding
+
+A child class provides its own implementation of a parent class method.
+
+```java
 class Animal {
 
     void sound() {
@@ -609,296 +861,778 @@ class Dog extends Animal {
         System.out.println("Dog barks");
     }
 }
+```
 
+### Runtime Polymorphism
 
-24. Abstraction
+```java
+Animal animal = new Dog();
 
-Abstraction means hiding implementation details and showing only essential functionality.
+animal.sound();
+```
 
-It can be achieved using:
+The overridden method of `Dog` is executed at runtime.
 
-• Abstract classes
-• Interfaces
+---
 
-Example:
+## 20. Abstraction
 
-abstract class Vehicle {
+Abstraction means hiding implementation details and showing only essential information.
 
-    abstract void start();
+Abstraction can be achieved using:
+
+* Abstract classes
+* Interfaces
+
+### Abstract Class
+
+```java
+abstract class Animal {
+
+    abstract void sound();
+
+    void eat() {
+        System.out.println("Eating");
+    }
 }
+```
 
+### Child Class
 
-25. Interface
+```java
+class Dog extends Animal {
+
+    @Override
+    void sound() {
+        System.out.println("Barking");
+    }
+}
+```
+
+---
+
+## 21. Interface
 
 An interface defines a contract that implementing classes follow.
 
-Example:
+A class uses the `implements` keyword to implement an interface.
 
-interface Payment {
+### Example
 
-    void pay();
+```java
+interface Vehicle {
+
+    void start();
 }
 
-class CreditCardPayment implements Payment {
+class Car implements Vehicle {
 
-    public void pay() {
-        System.out.println("Payment successful");
+    @Override
+    public void start() {
+        System.out.println("Car started");
     }
 }
+```
 
+### Important Points
 
-26. Access Modifiers
+* A class can implement multiple interfaces.
+* Interfaces support abstraction.
+* Interface methods can include abstract methods and, since Java 8, default and static methods.
+* Interface fields are implicitly `public`, `static` and `final`.
 
-Java provides four main access levels:
+---
 
-Modifier	    Same Class	  Same Package	  Subclass	  Other Package
-private	        Yes	            No	           No	          No
-default	        Yes	           Yes	           No     	    No
-protected	      Yes            Yes	          Yes	          No
-public	        Yes	           Yes	          Yes	         Yes
+## 22. Access Modifiers
 
-default means no explicit access modifier is used.
+Access modifiers control the visibility of classes, methods and variables.
 
-27. Exception Handling
+| Modifier  | Same Class | Same Package | Subclass in Other Package | Other Package |
+| --------- | ---------- | ------------ | ------------------------- | ------------- |
+| private   | Yes        | No           | No                        | No            |
+| default   | Yes        | Yes          | No                        | No            |
+| protected | Yes        | Yes          | Yes, through inheritance  | No            |
+| public    | Yes        | Yes          | Yes                       | Yes           |
 
-Exception handling is used to handle runtime problems without abruptly terminating the application.
+### private
 
-Main keywords:
+Accessible only inside the same class.
 
-• try
-• catch
-• finally
-• throw
-• throws
+### default
 
-Example:
+If no modifier is specified, access is limited to the same package.
 
+### protected
+
+Accessible in the same package and also in subclasses in other packages through inheritance.
+
+### public
+
+Accessible from anywhere.
+
+---
+
+## 23. Exception Handling
+
+An exception is an event that disrupts the normal flow of program execution.
+
+Java provides exception-handling mechanisms to handle such situations.
+
+### Common Keywords
+
+* try
+* catch
+* finally
+* throw
+* throws
+
+### try-catch
+
+```java
+public class Test {
+
+    public static void main(String[] args) {
+
+        try {
+            int result = 10 / 0;
+            System.out.println(result);
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero");
+        }
+    }
+}
+```
+
+### finally
+
+The `finally` block is used for code that should normally execute whether an exception occurs or not.
+
+```java
 try {
-    int result = 10 / 0;
-} catch (ArithmeticException e) {
-    System.out.println("Cannot divide by zero");
+    System.out.println("Try block");
+} catch (Exception e) {
+    System.out.println("Catch block");
+} finally {
+    System.out.println("Finally block");
+}
+```
+
+### throw
+
+Used to explicitly throw an exception.
+
+```java
+throw new IllegalArgumentException("Invalid value");
+```
+
+### throws
+
+Used to declare exceptions that a method may pass to its caller.
+
+```java
+void readFile() throws IOException {
+    // code
+}
+```
+
+---
+
+## 24. Checked and Unchecked Exceptions
+
+### Checked Exception
+
+Checked exceptions are checked by the compiler.
+
+Examples:
+
+* IOException
+* SQLException
+* FileNotFoundException
+
+### Unchecked Exception
+
+Unchecked exceptions occur at runtime and are subclasses of `RuntimeException`.
+
+Examples:
+
+* NullPointerException
+* ArithmeticException
+* ArrayIndexOutOfBoundsException
+* NumberFormatException
+
+### Difference
+
+| Checked Exception                                          | Unchecked Exception            |
+| ---------------------------------------------------------- | ------------------------------ |
+| Checked by compiler                                        | Occurs at runtime              |
+| Usually subclasses of Exception excluding RuntimeException | Subclasses of RuntimeException |
+| Must be handled or declared                                | Handling is not mandatory      |
+
+---
+
+## 25. Collections Framework
+
+Java Collections Framework provides classes and interfaces for storing and manipulating groups of objects.
+
+Main interfaces include:
+
+* List
+* Set
+* Queue
+* Map
+
+### List
+
+* Allows duplicates.
+* Maintains insertion order.
+
+Examples:
+
+* ArrayList
+* LinkedList
+
+### Set
+
+* Does not allow duplicate elements.
+
+Examples:
+
+* HashSet
+* LinkedHashSet
+* TreeSet
+
+### Queue
+
+Used for processing elements generally in a queue-oriented manner.
+
+Examples:
+
+* LinkedList
+* PriorityQueue
+* ArrayDeque
+
+### Map
+
+Stores data in key-value pairs.
+
+Examples:
+
+* HashMap
+* LinkedHashMap
+* TreeMap
+
+---
+
+## 26. ArrayList
+
+ArrayList is a resizable array implementation of the `List` interface.
+
+### Example
+
+```java
+import java.util.ArrayList;
+
+public class ArrayListExample {
+
+    public static void main(String[] args) {
+
+        ArrayList<String> names = new ArrayList<>();
+
+        names.add("Madhu");
+        names.add("Rahul");
+        names.add("Amit");
+
+        System.out.println(names);
+    }
+}
+```
+
+### Important Points
+
+* Allows duplicates.
+* Maintains insertion order.
+* Provides fast random access by index.
+* Not synchronized by default.
+
+---
+
+## 27. LinkedList
+
+LinkedList is a doubly linked list implementation.
+
+### Example
+
+```java
+import java.util.LinkedList;
+
+public class LinkedListExample {
+
+    public static void main(String[] args) {
+
+        LinkedList<String> names = new LinkedList<>();
+
+        names.add("Madhu");
+        names.add("Rahul");
+
+        names.addFirst("Amit");
+        names.addLast("Neha");
+
+        System.out.println(names);
+    }
+}
+```
+
+### Important Points
+
+* Allows duplicates.
+* Maintains insertion order.
+* Efficient insertion/removal at known linked positions.
+* Random access is slower than ArrayList.
+
+---
+
+## 28. HashSet
+
+HashSet stores unique elements.
+
+### Example
+
+```java
+import java.util.HashSet;
+
+public class HashSetExample {
+
+    public static void main(String[] args) {
+
+        HashSet<Integer> numbers = new HashSet<>();
+
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(10);
+
+        System.out.println(numbers);
+    }
+}
+```
+
+The duplicate `10` is not stored twice.
+
+### Important Points
+
+* Does not allow duplicates.
+* Does not guarantee insertion order.
+* Allows one `null` element.
+* Uses hashing internally.
+
+---
+
+## 29. HashMap
+
+HashMap stores data in key-value pairs.
+
+### Example
+
+```java
+import java.util.HashMap;
+
+public class HashMapExample {
+
+    public static void main(String[] args) {
+
+        HashMap<Integer, String> students = new HashMap<>();
+
+        students.put(1, "Madhu");
+        students.put(2, "Rahul");
+        students.put(3, "Amit");
+
+        System.out.println(students);
+    }
+}
+```
+
+### Important Points
+
+* Stores key-value pairs.
+* Keys are unique.
+* Allows one null key.
+* Allows multiple null values.
+* Does not guarantee insertion order.
+* Not synchronized by default.
+
+---
+
+## 30. Stack and Queue
+
+### Stack
+
+Stack follows **LIFO**:
+
+**Last In, First Out**
+
+```java
+import java.util.Stack;
+
+public class StackExample {
+
+    public static void main(String[] args) {
+
+        Stack<Integer> stack = new Stack<>();
+
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        System.out.println(stack.pop());
+    }
+}
+```
+
+Output:
+
+```text
+30
+```
+
+### Queue
+
+Queue generally follows **FIFO**:
+
+**First In, First Out**
+
+```java
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueExample {
+
+    public static void main(String[] args) {
+
+        Queue<Integer> queue = new LinkedList<>();
+
+        queue.add(10);
+        queue.add(20);
+        queue.add(30);
+
+        System.out.println(queue.poll());
+    }
+}
+```
+
+Output:
+
+```text
+10
+```
+
+---
+
+## 31. Java 8 Features
+
+Java 8 introduced several important features.
+
+### Major Features
+
+* Lambda Expressions
+* Functional Interfaces
+* Stream API
+* Method References
+* Default Methods
+* Static Methods in Interfaces
+* Optional
+* New Date and Time API
+
+### Lambda Expression
+
+Lambda expressions provide a concise way to represent behavior.
+
+```java
+interface Greeting {
+
+    void sayHello();
 }
 
+public class LambdaExample {
 
-28. Checked and Unchecked Exceptions
-Checked Exception
+    public static void main(String[] args) {
 
-Checked exceptions are checked at compile time.
+        Greeting greeting = () -> System.out.println("Hello Java");
 
-Examples:
+        greeting.sayHello();
+    }
+}
+```
 
-• IOException
-• SQLException
-• ClassNotFoundException
+---
 
-Unchecked Exception
+## 32. Stream API
 
-Unchecked exceptions occur at runtime.
+Stream API is used to process collections in a functional style.
 
-Examples:
+### filter()
 
-• NullPointerException
-• ArithmeticException
-• ArrayIndexOutOfBoundsException
-• NumberFormatException
+Used to filter elements.
 
+```java
+import java.util.Arrays;
+import java.util.List;
 
-29. Collections Framework
+public class StreamFilterExample {
 
-The Java Collections Framework provides classes and interfaces for storing and manipulating groups of objects.
+    public static void main(String[] args) {
 
-Important interfaces:
+        List<Integer> numbers =
+                Arrays.asList(10, 15, 20, 25, 30);
 
-• List
-• Set
-• Map
-• Queue
+        numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .forEach(System.out::println);
+    }
+}
+```
 
-Common implementations:
+Output:
 
-• ArrayList
-• LinkedList
-• HashSet
-• HashMap
-• PriorityQueue
+```text
+10
+20
+30
+```
 
+### map()
 
-30. Wrapper Classes
+Used to transform elements.
 
-Wrapper classes convert primitive data types into objects.
+```java
+import java.util.Arrays;
+import java.util.List;
 
-Primitive	Wrapper
-byte	Byte
-short	Short
-int	Integer
-long	Long
-float	Float
-double	Double
-char	Character
-boolean	Boolean
+public class StreamMapExample {
 
-Example:
+    public static void main(String[] args) {
 
-int number = 10;
+        List<String> names =
+                Arrays.asList("madhu", "rahul", "amit");
 
-Integer value = number;
+        names.stream()
+                .map(String::toUpperCase)
+                .forEach(System.out::println);
+    }
+}
+```
 
-This automatic conversion is called autoboxing.
+Output:
 
+```text
+MADHU
+RAHUL
+AMIT
+```
 
-31. Autoboxing and Unboxing
-Autoboxing
+---
 
-Primitive → Wrapper Object
+## 33. Memory Management
 
-int number = 10;
-Integer value = number;
-Unboxing
+Java manages memory automatically using the JVM and Garbage Collector.
 
-Wrapper Object → Primitive
+### Stack
 
-Integer value = 10;
-int number = value;
+Stack stores method call information, local variables and references in stack frames.
 
+### Heap
 
-32. Garbage Collection
+Heap is the memory area where objects and arrays are allocated.
 
-Garbage Collection is the automatic process of removing objects that are no longer reachable by the application.
+### Example
 
-Java manages memory automatically using the Garbage Collector.
-
-Example:
-
+```java
 Student student = new Student();
+```
 
-student = null;
+Conceptually:
 
-The previously referenced object may become eligible for garbage collection.
+* `student` reference is part of the current stack frame.
+* The `Student` object is allocated on the heap.
 
+### Garbage Collection
 
-33. Stack and Heap Memory
-Stack Memory
+Garbage Collection automatically removes objects that are no longer reachable by the application.
 
-Used for:
+---
 
-• Method calls
-• Local variables
-• References associated with method execution
-
-Heap Memory
-
-Used for:
-
-• Objects
-• Instance data
-
-Example:
-
-Student student = new Student();
-
-The object is created in heap memory, while the local reference variable is associated with the current stack frame.
-
-34. Java is Platform Independent
-
-Java follows:
-
-Write Once, Run Anywhere
+## 34. Java is Platform Independent
 
 Java source code is compiled into bytecode.
 
-The bytecode can run on different operating systems using compatible JVM implementations.
+Bytecode can run on different operating systems when a compatible JVM is available.
 
-Important Interview Questions
-
-Q1. Why is Java platform independent?
-Because Java source code is compiled into bytecode, and the bytecode can run on different operating systems using their JVM implementations.
-
-Q2. What is the difference between JDK, JRE and JVM?
-• JDK is used for Java development and includes runtime components and development tools.
-• JRE provides the runtime environment.
-• JVM executes Java bytecode.
-
-Q3. Is Java completely object-oriented?
-No. Java also supports primitive data types such as int, char, boolean, etc.
-
-Q4. What is bytecode?
-Bytecode is the intermediate code generated by the Java compiler and stored in .class files.
-
-Q5. What is the difference between == and equals()?
-== generally compares primitive values or object references.
-
-equals() is a method used to compare object contents when the class provides an appropriate implementation.
-
-Q6. What is method overloading?
-Having multiple methods with the same name but different parameter lists is called method overloading.
-
-Q7. What is method overriding?
-When a subclass provides its own implementation of a method inherited from its parent class, it is called method overriding.
-
-Q8. What is the difference between String and StringBuilder?
-String is immutable, while StringBuilder is mutable.
-
-Q9. What is inheritance?
-Inheritance allows a child class to acquire properties and behavior from a parent class.
-
-Q10. What is encapsulation?
-Encapsulation means bundling data and methods together and controlling access to the data.
-
-Q11. What is abstraction?
-Abstraction hides implementation details and exposes only the required functionality.
-
-Q12. What is polymorphism?
-Polymorphism allows the same interface or method name to represent different behaviors.
-
-Q13. What is garbage collection?
-Garbage collection automatically reclaims memory from objects that are no longer reachable.
-
-Q14. What are the 8 primitive data types in Java?
-byte
-short
-int
-long
-float
-double
-char
-boolean
-
-Q15. What is the difference between checked and unchecked exceptions?
-Checked exceptions are checked at compile time, while unchecked exceptions occur at runtime.
-
-Quick Revision
-Java
- ↓
-Object-Oriented
- ↓
-Platform Independent
- ↓
-Source Code (.java)
- ↓
+```text
+Java Code
+    ↓
 Compiler
- ↓
-Bytecode (.class)
- ↓
+    ↓
+Bytecode
+    ↓
 JVM
- ↓
-Machine Code
+    ↓
+Windows / Linux / macOS
+```
 
-**Remember**
-• JDK → Development + Runtime
-• JRE → Runtime Environment
-• JVM → Executes Bytecode
-• OOPs → Encapsulation, Inheritance, Polymorphism, Abstraction
-• String → Immutable
-• StringBuilder → Mutable
-• Array → Fixed Size
-• Collection → Dynamic Data Structures
-• == → Primitive values / object references
-• equals() → Object content comparison when properly implemented
-• final → Prevents modification/overriding/inheritance depending on usage
-• static → Belongs to the class
-• this → Current object
-• Constructor → Initializes objects
-• Garbage Collection → Automatic memory management
+Therefore Java is commonly described as:
 
+**Write Once, Run Anywhere.**
 
+The JVM itself is platform-specific, while Java bytecode is designed to be platform-independent.
 
+---
+
+# Important Java Interview Questions
+
+## Basic Questions
+
+1. What is Java?
+2. What are the main features of Java?
+3. Why is Java platform independent?
+4. What is JVM?
+5. What is JDK?
+6. What is JRE?
+7. Difference between JDK, JRE and JVM.
+8. What is bytecode?
+9. What is a class?
+10. What is an object?
+
+## OOPs Questions
+
+11. What is OOP?
+12. What are the four pillars of OOP?
+13. What is encapsulation?
+14. What is inheritance?
+15. What is polymorphism?
+16. What is abstraction?
+17. Difference between method overloading and overriding.
+18. Difference between abstract class and interface.
+19. Can Java support multiple inheritance?
+20. What is the `this` keyword?
+21. What is the `super` keyword?
+22. What is a constructor?
+23. Can constructors be overloaded?
+
+## String Questions
+
+24. Why is String immutable in Java?
+25. Difference between `==` and `equals()`.
+26. Difference between String, StringBuilder and StringBuffer.
+27. What is String Pool?
+28. What is the difference between `String s = "Java"` and `new String("Java")`?
+
+## Collections Questions
+
+29. What is the Java Collections Framework?
+30. Difference between List, Set and Map.
+31. Difference between ArrayList and LinkedList.
+32. Difference between HashSet and TreeSet.
+33. Difference between HashMap and Hashtable.
+34. How does HashMap work?
+35. Can HashMap contain null values?
+36. Can HashMap contain duplicate keys?
+37. Difference between ArrayList and Vector.
+38. What is the difference between HashMap and ConcurrentHashMap?
+
+## Exception Questions
+
+39. What is an exception?
+40. Difference between checked and unchecked exceptions.
+41. Difference between `throw` and `throws`.
+42. What is finally?
+43. Can finally block execute without catch?
+44. What is the difference between final, finally and finalize?
+
+## Java 8 Questions
+
+45. What is Lambda Expression?
+46. What is Functional Interface?
+47. What is Stream API?
+48. Difference between `map()` and `filter()`.
+49. What is Optional?
+50. What is a method reference?
+51. What are default methods in interfaces?
+
+---
+
+# Quick Revision
+
+### OOPs
+
+```text
+Encapsulation → Data Hiding
+Inheritance   → Reusability
+Polymorphism  → Many Forms
+Abstraction   → Hiding Implementation
+```
+
+### Collections
+
+```text
+List  → Allows duplicates
+Set   → Unique elements
+Map   → Key-Value pairs
+Queue → Processing elements in queue order
+```
+
+### Java 8
+
+```text
+Lambda
+Functional Interface
+Stream API
+Method Reference
+Optional
+Default Methods
+```
+
+### Exception Handling
+
+```text
+try
+catch
+finally
+throw
+throws
+```
+
+### Access Modifiers
+
+```text
+private
+default
+protected
+public
+```
+
+---
+
+# Remember
+
+* Java is object-oriented and class-based.
+* Java source code is compiled into bytecode.
+* JVM executes bytecode.
+* JDK is used for Java development.
+* JRE conceptually provides the runtime environment.
+* Java supports method overloading and method overriding.
+* Encapsulation provides data hiding.
+* Inheritance provides reusability.
+* Polymorphism means many forms.
+* Abstraction hides implementation details.
+* String is immutable.
+* ArrayList is a resizable array.
+* HashSet stores unique elements.
+* HashMap stores key-value pairs.
+* Stack follows LIFO.
+* Queue generally follows FIFO.
+* Lambda expressions were introduced in Java 8.
+* Stream API is used for processing data in a functional style.
+* Garbage Collection manages unreachable objects automatically.
+
+````
+
+**Bas isi ko direct paste kijiye.** Is baar ` ```markdown ` kahin bhi extra nahi hai, aur headings/code/table sab properly formatted hain. ❤️
+````
