@@ -1002,6 +1002,7 @@ It is commonly used in hash-based collections such as:
 Important Rule
 
 If two objects are equal according to equals(), they must have the same hashCode().
+
 ---
 
 ## 40. Final Keyword
@@ -1177,7 +1178,7 @@ Q1. What is OOPs?
 OOPs is a programming approach based on objects and classes. Its four major principles are Encapsulation, Inheritance, Polymorphism and Abstraction.
 ---
 
-## Q2. What are the four pillars of OOPs?
+Q2. What are the four pillars of OOPs?
 
 The four pillars are:
 
@@ -1187,12 +1188,12 @@ The four pillars are:
 4. Abstraction
 ---
 
-## Q3. What is encapsulation?
+Q3. What is encapsulation?
 
 Encapsulation means wrapping data and methods together and restricting direct access to data using access modifiers.
 ---
 
-## Q4. What is inheritance?
+Q4. What is inheritance?
 
 Inheritance allows a child class to acquire properties and behaviors of a parent class.
 ---
@@ -1279,8 +1280,139 @@ Animal a = new Dog();
 ```
 ---
 
-## Q15. Why is multiple inheritance not supported through classes?
+Q15. Why is multiple inheritance not supported through classes?
 
 Because it can create ambiguity, commonly known as the diamond problem.
 
 Java provides interfaces as a solution for multiple inheritance of type.
+---
+
+51. OOPs Quick Revision
+OOPs
+ |
+ +-- Class
+ |
+ +-- Object
+ |
+ +-- Encapsulation
+ |
+ +-- Inheritance
+ |     |
+ |     +-- Single
+ |     +-- Multilevel
+ |     +-- Hierarchical
+ |
+ +-- Polymorphism
+ |     |
+ |     +-- Compile Time
+ |     |      |
+ |     |      +-- Method Overloading
+ |     |
+ |     +-- Runtime
+ |            |
+ |            +-- Method Overriding
+ |
+ +-- Abstraction
+       |
+       +-- Abstract Class
+       +-- Interface
+---
+
+52. Important Keywords Related to OOPs
+| Keyword      | Purpose                                      |
+| ------------ | -------------------------------------------- |
+| `class`      | Defines a class                              |
+| `new`        | Creates an object                            |
+| `extends`    | Used for inheritance                         |
+| `implements` | Used to implement an interface               |
+| `this`       | Refers to current object                     |
+| `super`      | Refers to parent class                       |
+| `static`     | Belongs to class                             |
+| `final`      | Prevents modification/inheritance/overriding |
+| `abstract`   | Defines abstract class or method             |
+| `instanceof` | Checks object type                           |
+---
+
+53. Real-World Example of OOPs
+
+Consider a banking application.
+BankAccount
+    |
+    +-- accountNumber
+    +-- accountHolder
+    +-- balance
+    |
+    +-- deposit()
+    +-- withdraw()
+    +-- checkBalance()
+---
+
+Encapsulation
+
+Keep account data private.
+
+private double balance;
+Abstraction
+
+Expose only required operations.
+
+deposit();
+withdraw();
+Inheritance
+
+Different account types can inherit from a common account class.
+
+BankAccount
+   |
+   +-- SavingsAccount
+   |
+   +-- CurrentAccount
+Polymorphism
+
+Different account types can provide different implementations of methods.
+
+54. Final OOPs Summary
+
+OOPs is one of the most important concepts in Java.
+
+The four pillars are:
+
+Encapsulation
+Data Hiding + Data Binding
+Inheritance
+Code Reusability
+Polymorphism
+One Name + Many Forms
+Abstraction
+Hide Implementation + Show Essential Details
+---
+
+Most Important Interview Topics
+* Class and Object
+* Constructor
+* this
+* super
+* Encapsulation
+* Inheritance
+* Types of Inheritance
+* Method Overloading
+* Method Overriding
+* Compile-Time Polymorphism
+* Runtime Polymorphism
+* Abstraction
+* Abstract Class
+* Interface
+* static
+* final
+* IS-A relationship
+* HAS-A relationship
+* Association
+* Aggregation
+* Composition
+* Upcasting
+* Downcasting
+* instanceof
+* Object class
+* equals()
+* hashCode()
+* toString()
