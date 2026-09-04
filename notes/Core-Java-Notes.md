@@ -41,7 +41,7 @@ public class HelloWorld {
 ```
 
 ---
-## NOTE(Example) . How Java Works
+## How Java Works
 
 Java follows the principle:
 
@@ -68,17 +68,6 @@ Java Source Code
        ↓
 Operating System
 ````
-
-### Example
-
-```java
-public class HelloWorld {
-
-    public static void main(String[] args) {
-        System.out.println("Hello World");
-    }
-}
-```
 
 ---
 
