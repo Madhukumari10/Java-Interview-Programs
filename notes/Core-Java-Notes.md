@@ -37,6 +37,7 @@ public class HelloWorld {
     }
 }
 
+```markdown
 ## 3. JDK, JRE and JVM
 JVM - Java Virtual Machine
 
@@ -60,6 +61,7 @@ Used to develop and run Java applications	Used to run Java applications	Executes
 Contains JRE	Contains JVM	Part of JRE
 Contains development tools	Contains libraries	Platform dependent implementation
 
+```markdown
 ## 4. Variables
 
 A variable is a named memory location used to store data.
