@@ -855,10 +855,11 @@ Test.display();
 Association represents a relationship between two independent objects.
 
 Example:
+```
 Teacher ---- Student
 ```
 A teacher and student can exist independently.
-```
+
 
 ## 32. Aggregation
 
@@ -877,6 +878,7 @@ class University {
 }
 ```
 A department can exist independently of a university.
+
 ---
 
 ## 33. 
