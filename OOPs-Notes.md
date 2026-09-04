@@ -881,4 +881,406 @@ A department can exist independently of a university.
 
 ---
 
-## 33. 
+## 33. Composition
+
+Composition is a strong HAS-A relationship.
+
+The child object generally depends on the parent object's lifecycle.
+
+Example:
+```java
+class Engine {
+}
+
+class Car {
+
+    private Engine engine = new Engine();
+}
+```
+Here Car has an Engine.
+
+---
+
+## 34. IS-A Relationship
+
+IS-A relationship represents inheritance.
+
+Example:
+```
+Dog IS-A Animal
+```
+Java:
+```java
+class Animal {
+}
+
+class Dog extends Animal {
+}
+```
+
+## 35. HAS-A Relationship
+
+HAS-A relationship represents composition or aggregation.
+
+Example:
+```
+Car HAS-A Engine
+```
+Java:
+```java
+class Engine {
+}
+
+class Car {
+
+    Engine engine;
+}
+```
+
+## 36. Object Class
+
+Object is the root class of the Java class hierarchy.
+
+Every Java class directly or indirectly inherits from Object.
+
+Common methods of Object class:
+
+* toString()
+* equals()
+* hashCode()
+* getClass()
+* clone()
+* wait()
+* notify()
+* notifyAll()
+---
+
+## 37.toString()
+
+The toString() method returns a string representation of an object.
+
+Example:
+```java
+class Student {
+
+    int id;
+    String name;
+
+    @Override
+    public String toString() {
+
+        return id + " " + name;
+    }
+}
+```
+
+## 38. equals()
+
+The equals() method is used to compare objects logically.
+
+Example:
+```java
+String s1 = new String("Java");
+String s2 = new String("Java");
+
+System.out.println(s1.equals(s2));
+```
+Output:
+true
+
+---
+## 39. hashCode()
+
+hashCode() returns an integer hash value for an object.
+
+It is commonly used in hash-based collections such as:
+
+* HashMap
+* HashSet
+* Hashtable
+
+Important Rule
+
+If two objects are equal according to equals(), they must have the same hashCode().
+---
+
+## 40. Final Keyword
+
+The final keyword can be used with:
+
+* Variable
+* Method
+* Class
+
+Final Variable
+
+A final variable cannot be reassigned.
+```java
+final int x = 10;
+```
+Final Method
+
+A final method cannot be overridden.
+```java
+class Parent {
+
+    final void show() {
+        System.out.println("Parent");
+    }
+}
+```
+Final Class
+
+A final class cannot be inherited.
+```java
+final class Parent {
+}
+```
+
+## 41. Method Overloading Rules
+
+Method overloading requires:
+
+Same method name
+Different parameter list
+
+Example:
+```java
+void show(int x) {
+}
+
+void show(String x) {
+}
+
+void show(int x, int y) {
+}
+```
+
+## 42. Method Overriding Rules
+
+For method overriding:
+
+* Parent-child relationship is required.
+* Method name must be same.
+* Parameters must be same.
+* Return type must be same or covariant.
+* Access level cannot be more restrictive.
+* final methods cannot be overridden.
+* static methods are hidden, not overridden.
+* Private methods cannot be overridden.
+
+---
+
+## 43. Upcasting
+
+Upcasting means storing a child object in a parent class reference.
+```java
+Animal a = new Dog();
+```
+This is safe and commonly used in runtime polymorphism.
+
+---
+
+## 44. Downcasting
+
+Downcasting means converting a parent reference back to a child reference.
+```java
+Animal a = new Dog();
+
+Dog d = (Dog) a;
+```
+Downcasting should be done carefully.
+
+---
+
+## 45. instanceof Operator
+
+The instanceof operator checks whether an object belongs to a particular type.
+
+Example:
+```java
+Animal a = new Dog();
+
+if (a instanceof Dog) {
+
+    System.out.println("Object is Dog");
+}
+```
+
+## 46. Dynamic Method Dispatch
+
+Dynamic Method Dispatch is the mechanism by which an overridden method is resolved at runtime.
+
+Example:
+```java
+class Animal {
+
+    void sound() {
+        System.out.println("Animal sound");
+    }
+}
+
+class Dog extends Animal {
+
+    @Override
+    void sound() {
+        System.out.println("Dog bark");
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Animal animal = new Dog();
+
+        animal.sound();
+    }
+}
+```
+Output:
+Dog bark
+
+---
+
+## 47. Association vs Aggregation vs Composition
+| Relationship | Meaning              | Dependency                    |
+| ------------ | -------------------- | ----------------------------- |
+| Association  | General relationship | Independent                   |
+| Aggregation  | Weak HAS-A           | Child can exist independently |
+| Composition  | Strong HAS-A         | Child depends on parent       |
+---
+
+## 48. Class vs Object
+| Class                                  | Object                         |
+| -------------------------------------- | ------------------------------ |
+| Blueprint                              | Instance of class              |
+| Logical entity                         | Physical/runtime entity        |
+| Does not represent a specific instance | Represents a specific instance |
+| Created using class definition         | Created using `new`            |
+---
+
+## 49. Abstract Class vs Interface
+| Abstract Class                         | Interface                                     |
+| -------------------------------------- | --------------------------------------------- |
+| Declared using `abstract class`        | Declared using `interface`                    |
+| Can have constructors                  | Cannot have constructors                      |
+| Can have instance variables            | Variables are public static final by default  |
+| Can have abstract and concrete methods | Can have abstract, default and static methods |
+| Class extends abstract class           | Class implements interface                    |
+| A class can extend only one class      | A class can implement multiple interfaces     |
+---
+
+## 50. Important OOPs Interview Questions
+Q1. What is OOPs?
+
+OOPs is a programming approach based on objects and classes. Its four major principles are Encapsulation, Inheritance, Polymorphism and Abstraction.
+---
+
+## Q2. What are the four pillars of OOPs?
+
+The four pillars are:
+
+1. Encapsulation
+2. Inheritance
+3. Polymorphism
+4. Abstraction
+---
+
+## Q3. What is encapsulation?
+
+Encapsulation means wrapping data and methods together and restricting direct access to data using access modifiers.
+---
+
+## Q4. What is inheritance?
+
+Inheritance allows a child class to acquire properties and behaviors of a parent class.
+---
+
+Q5. What is polymorphism?
+
+Polymorphism means one name having multiple forms.
+
+It is mainly achieved through:
+
+Method overloading
+Method overriding
+---
+
+Q6. What is abstraction?
+
+Abstraction means hiding implementation details and exposing only essential functionality.
+
+It is achieved using abstract classes and interfaces.
+---
+
+Q7. Difference between overloading and overriding?
+
+Overloading occurs at compile time and uses different parameter lists.
+
+Overriding occurs at runtime and requires a parent-child relationship with the same method signature.
+---
+
+Q8. Can we overload a method by changing only the return type?
+
+No.
+
+Return type alone cannot differentiate overloaded methods.
+---
+
+Q9. Can we override a static method?
+
+No.
+
+Static methods are hidden, not overridden.
+---
+
+Q10. Can we override a final method?
+
+No.
+
+A final method cannot be overridden.
+---
+
+Q11. Can we create an object of an abstract class?
+
+No.
+```java
+An abstract class cannot be directly instantiated.
+
+abstract class Animal {
+}
+```
+This is invalid:
+```java
+Animal a = new Animal();
+```
+---
+
+## Q12. Can an abstract class have a constructor?
+
+Yes.
+
+An abstract class can have constructors.
+---
+
+Q13. Can an interface have a constructor?
+
+No.
+
+Interfaces cannot have constructors.
+---
+
+Q14. Can we create a reference of an abstract class?
+
+Yes.
+```java
+Animal a = new Dog();
+```
+---
+
+## Q15. Why is multiple inheritance not supported through classes?
+
+Because it can create ambiguity, commonly known as the diamond problem.
+
+Java provides interfaces as a solution for multiple inheritance of type.
