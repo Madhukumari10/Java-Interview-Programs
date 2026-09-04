@@ -81,7 +81,7 @@ public class Main {
 * s1 is the reference variable.
 * new Student() creates the object.
 
-  ---
+---
 
 ## 4.new Keyword
 
@@ -100,7 +100,7 @@ Student s1 = new Student();
 * Student() → constructor call
 
 
-  ---
+---
 
 ## 5. Four Pillars of OOPs
 
@@ -111,7 +111,7 @@ The four major pillars of OOPs are:
 3. Polymorphism
 4. Abstraction
 
-  ---
+---
 
 ## 6. Encapsulation
 
