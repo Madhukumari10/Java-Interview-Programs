@@ -361,7 +361,7 @@ There are two types:
 ## 11. Compile-Time Polymorphism
 
 Compile-time polymorphism is achieved using method overloading.
----
+
 
 ## 11.1 Method Overloading
 
@@ -423,7 +423,7 @@ double add(int a, int b) {
 }
 ```
 
-## 12.Runtime Polymorphism
+## 12. Runtime Polymorphism
 
 Runtime polymorphism is achieved using method overriding.
 
@@ -466,3 +466,317 @@ Here the method that executes is decided at runtime.
 ---
 
 ## 13. Method Overloading vs Method Overriding
+| Method Overloading                | Method Overriding                     |
+| --------------------------------- | ------------------------------------- |
+| Compile-time polymorphism         | Runtime polymorphism                  |
+| Same class usually                | Parent-child relationship             |
+| Same method name                  | Same method signature                 |
+| Parameters must be different      | Parameters must be same               |
+| Return type alone cannot overload | Return type must be same or covariant |
+| Inheritance is not required       | Inheritance is required               |
+---
+## 14. Abstraction
+
+Abstraction means hiding implementation details and showing only essential information.
+
+Java provides abstraction using:
+
+1. Abstract classes
+2. Interfaces
+
+---
+## 15. Abstract Class
+
+A class declared with the abstract keyword is called an abstract class.
+
+An abstract class can contain:
+
+* Abstract methods
+* Concrete methods
+* Variables
+* Constructors
+* Static methods
+* Final methods
+
+Example:
+```java
+abstract class Animal {
+
+    abstract void sound();
+
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+```
+A child class provides implementation of the abstract method.
+```java
+class Dog extends Animal {
+
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+```
+Usage
+```java
+public class Main {
+
+    public static void main(String[] args) {
+
+        Dog d = new Dog();
+
+        d.sound();
+        d.eat();
+    }
+}
+```
+
+## 16.Abstract Method
+
+An abstract method is a method without a body.
+
+Example:
+```java
+abstract class Animal {
+
+    abstract void sound();
+}
+```
+The child class must implement the abstract method unless the child class is also abstract.
+---
+## 17. Interface
+
+An interface is used to achieve abstraction and multiple inheritance in Java.
+
+The interface keyword is used to create an interface.
+
+Example:
+```java
+interface Vehicle {
+
+    void start();
+}
+```
+A class implements an interface using the implements keyword.
+```java
+class Car implements Vehicle {
+
+    @Override
+    public void start() {
+        System.out.println("Car starts");
+    }
+}
+```
+Usage
+```java
+public class Main {
+
+    public static void main(String[] args) {
+
+        Car c = new Car();
+
+        c.start();
+    }
+}
+```
+
+## 18. Multiple Inheritance Using Interface
+
+Java supports multiple inheritance through interfaces.
+
+Example
+```java
+interface A {
+
+    void showA();
+}
+
+interface B {
+
+    void showB();
+}
+
+class C implements A, B {
+
+    @Override
+    public void showA() {
+        System.out.println("A");
+    }
+
+    @Override
+    public void showB() {
+        System.out.println("B");
+    }
+}
+```
+Here class C implements both interfaces.
+---
+
+## 19. Encapsulation vs Abstraction
+| Encapsulation                                        | Abstraction                                    |
+| ---------------------------------------------------- | ---------------------------------------------- |
+| Hides data                                           | Hides implementation                           |
+| Achieved using private variables and getters/setters | Achieved using abstract classes and interfaces |
+| Focuses on data security                             | Focuses on essential functionality             |
+| Answers "How to protect data?"                       | Answers "What should be exposed?"              |
+---
+## 20. Constructor
+
+A constructor is a special member of a class used to initialize objects.
+
+Rules of Constructor
+* Constructor name must be same as class name.
+* It has no return type.
+* It is called automatically when an object is created.
+* Constructors can be overloaded.
+* Constructors are not inherited.
+
+Example
+```java
+class Student {
+
+    int id;
+    String name;
+
+    Student() {
+        System.out.println("Constructor called");
+    }
+}
+```
+
+## 21. Default Constructor
+
+A constructor with no parameters is called a no-argument constructor.
+```java
+class Student {
+
+    Student() {
+        System.out.println("Student object created");
+    }
+}
+```
+
+## 22. Parameterized Constructor
+
+A constructor that accepts parameters is called a parameterized constructor.
+```java
+class Student {
+
+    int id;
+    String name;
+
+    Student(int id, String name) {
+
+        this.id = id;
+        this.name = name;
+    }
+}
+```
+
+## 23. Constructor Overloading
+
+A class can have multiple constructors with different parameter lists.
+```java
+class Student {
+
+    int id;
+    String name;
+
+    Student() {
+    }
+
+    Student(int id) {
+        this.id = id;
+    }
+
+    Student(int id, String name) {
+
+        this.id = id;
+        this.name = name;
+    }
+}
+```
+
+## 24. this Keyword
+
+The this keyword refers to the current object.
+
+Example
+```java
+class Student {
+
+    int id;
+    String name;
+
+    Student(int id, String name) {
+
+        this.id = id;
+        this.name = name;
+    }
+}
+```
+Here:
+
+* this.id → instance variable
+* id → constructor parameter
+---
+
+## 25. Uses of this Keyword
+
+The this keyword can be used to:
+
+1. Refer to current class instance variable.
+2. Invoke current class method.
+3. Invoke current class constructor.
+4. Pass current object as an argument.
+5. Return current object.
+   
+Example
+```java
+class Student {
+
+    void show() {
+        System.out.println("Hello");
+    }
+
+    void display() {
+
+        this.show();
+    }
+}
+```
+
+## 26. super Keyword
+
+The super keyword refers to the immediate parent class object.
+
+It can be used to:
+
+1. Access parent class variable.
+2. Call parent class method.
+3. Call parent class constructor.
+
+Example
+```java
+class Parent {
+
+    int x = 10;
+}
+
+class Child extends Parent {
+
+    int x = 20;
+
+    void show() {
+
+        System.out.println(super.x);
+    }
+}
+```
+Output:
+10
+
+---
+## 27.
