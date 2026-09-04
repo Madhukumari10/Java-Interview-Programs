@@ -38,8 +38,6 @@ class Student {
 }
 
 ```
-
----
 ## Here:
 
 * Student is a class.
@@ -78,7 +76,6 @@ public class Main {
 
 ```
 
----
 ## Here:
 * Student is the class.
 * s1 is the reference variable.
@@ -96,7 +93,6 @@ Student s1 = new Student();
 
 ```
 
----
 ## Here:
 * Student → class type
 * s1 → reference variable
