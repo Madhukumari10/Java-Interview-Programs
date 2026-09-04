@@ -41,7 +41,7 @@ public class HelloWorld {
 ```
 
 ---
-## 2. How Java Works
+## NOTE(Example) . How Java Works
 
 Java follows the principle:
 
