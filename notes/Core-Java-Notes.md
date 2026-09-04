@@ -37,7 +37,7 @@ public class HelloWorld {
     }
 }
 
-3. JDK, JRE and JVM
+## 3. JDK, JRE and JVM
 JVM - Java Virtual Machine
 
 JVM is responsible for executing Java bytecode.
@@ -60,7 +60,7 @@ Used to develop and run Java applications	Used to run Java applications	Executes
 Contains JRE	Contains JVM	Part of JRE
 Contains development tools	Contains libraries	Platform dependent implementation
 
-4. Variables
+## 4. Variables
 
 A variable is a named memory location used to store data.
 
