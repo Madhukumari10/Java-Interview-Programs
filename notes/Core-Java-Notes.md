@@ -22,8 +22,9 @@ Java is widely used for building desktop applications, web applications, backend
 - High Performance
 - Architecture Neutral
 
----
+```
 
+---
 ## 2. How Java Works
 
 Java follows the principle:
@@ -1632,7 +1633,4 @@ public
 * Stream API is used for processing data in a functional style.
 * Garbage Collection manages unreachable objects automatically.
 
-````
-
-**Bas isi ko direct paste kijiye.** Is baar ` ```markdown ` kahin bhi extra nahi hai, aur headings/code/table sab properly formatted hain. ❤️
 ````
