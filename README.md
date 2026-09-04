@@ -35,6 +35,9 @@ A collection of practical Java programs covering Core Java concepts and commonly
 * Even and Odd Numbers
 * Duplicate Elements
 * Array Sorting
+* Search an Element
+* Count Even and Odd Elements
+* Average of Array Elements
 
 ### 4. OOPs
 
