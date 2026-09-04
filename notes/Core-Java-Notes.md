@@ -1,3 +1,42 @@
+# Core Java Notes
+
+## 1. What is Java?
+
+Java is a high-level, object-oriented, class-based programming language developed by Sun Microsystems.
+
+Java is widely used for building desktop applications, web applications, backend systems, enterprise applications and Android applications.
+
+### Key Features of Java
+
+- Object-Oriented
+- Platform Independent
+- Simple
+- Secure
+- Robust
+- Portable
+- Multithreaded
+- Distributed
+- High Performance
+- Automatic Garbage Collection
+
+---
+
+## 2. How Java Works
+
+Java follows the concept:
+
+Source Code → Compiler → Bytecode → JVM → Machine Code
+
+Example:
+
+```java
+public class HelloWorld {
+
+    public static void main(String[] args) {
+        System.out.println("Hello, Java!");
+    }
+}
+
 ````markdown
 # Core Java Notes
 
