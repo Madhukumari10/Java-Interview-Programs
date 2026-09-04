@@ -1350,14 +1350,17 @@ BankAccount
 Encapsulation
 
 Keep account data private.
-
+```java
 private double balance;
+```
 Abstraction
 
 Expose only required operations.
-
+```java
 deposit();
 withdraw();
+```
+
 Inheritance
 
 Different account types can inherit from a common account class.
@@ -1367,6 +1370,8 @@ BankAccount
    +-- SavingsAccount
    |
    +-- CurrentAccount
+
+
 Polymorphism
 
 Different account types can provide different implementations of methods.
@@ -1378,13 +1383,21 @@ OOPs is one of the most important concepts in Java.
 The four pillars are:
 
 Encapsulation
+```
 Data Hiding + Data Binding
+```
 Inheritance
+```
 Code Reusability
+```
 Polymorphism
+```
 One Name + Many Forms
+```
 Abstraction
+```
 Hide Implementation + Show Essential Details
+```
 ---
 
 Most Important Interview Topics
